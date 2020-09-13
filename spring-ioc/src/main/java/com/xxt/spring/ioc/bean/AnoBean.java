@@ -1,4 +1,4 @@
-package com.xxt.spring.ioc;
+package com.xxt.spring.ioc.bean;
 
 public class AnoBean {
 

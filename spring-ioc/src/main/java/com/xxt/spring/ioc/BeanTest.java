@@ -1,18 +1,26 @@
 package com.xxt.spring.ioc;
 
+import com.xxt.spring.ioc.bean.AnoBean;
+import com.xxt.spring.ioc.bean.SimpleBean;
 import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 
 public class BeanTest {
-    public static void main(String[] args) {
 
+    public static void getBeanByName(){
+        ApplicationContext xmlApplicationContext = IoCTest.createXmlApplicationContext();
+        SimpleBean simpleBean = (SimpleBean) xmlApplicationContext.getBean("bean1");
+        System.out.println(simpleBean);
+    }
+
+    /**
+     * 在运行时像容器注册自定义的beanDefinition
+     */
+    public static void customizeInjectBeanDefinition(){
         //构建自定义的BeanDefination
         GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
         genericBeanDefinition.setBeanClass(AnoBean.class);
@@ -27,14 +35,18 @@ public class BeanTest {
         DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) annotationContext.getBeanFactory();
 
         //利用DefaultListableBeanFactory来注册BeanDefinition
-        beanFactory.registerBeanDefinition("zidingyi", genericBeanDefinition);
+        beanFactory.registerBeanDefinition("zidingyi,wode", genericBeanDefinition);
 
         //刷新容器,不刷新容器直接获取会报错AnnotationConfigApplicationContext has not been refreshed yet
         annotationContext.refresh();
 
         //获取自定义的beanDefination
-        AnoBean bean = annotationContext.getBean(AnoBean.class);
+        AnoBean bean = (AnoBean) annotationContext.getBean("zidingyi,wode");
         System.out.println(bean);
+    }
 
+    public static void main(String[] args) {
+        //customizeInjectBeanDefinition();
+        getBeanByName();
     }
 }

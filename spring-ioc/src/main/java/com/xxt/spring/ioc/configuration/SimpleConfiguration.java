@@ -1,4 +1,4 @@
-package com.xxt.spring.ioc;
+package com.xxt.spring.ioc.configuration;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Import;
