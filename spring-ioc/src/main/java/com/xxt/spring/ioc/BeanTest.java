@@ -9,8 +9,13 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.beans.PropertyEditor;
+
 public class BeanTest {
 
+    /**
+     * 通过bean name获取bean
+     */
     public static void getBeanByName(){
         ApplicationContext xmlApplicationContext = IoCTest.createXmlApplicationContext();
         SimpleBean simpleBean = (SimpleBean) xmlApplicationContext.getBean("bean1");
@@ -35,14 +40,23 @@ public class BeanTest {
         DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) annotationContext.getBeanFactory();
 
         //利用DefaultListableBeanFactory来注册BeanDefinition
-        beanFactory.registerBeanDefinition("zidingyi,wode", genericBeanDefinition);
+        beanFactory.registerBeanDefinition("zidingyi", genericBeanDefinition);
 
         //刷新容器,不刷新容器直接获取会报错AnnotationConfigApplicationContext has not been refreshed yet
         annotationContext.refresh();
 
         //获取自定义的beanDefination
-        AnoBean bean = (AnoBean) annotationContext.getBean("zidingyi,wode");
+        AnoBean bean = (AnoBean) annotationContext.getBean("zidingyi");
         System.out.println(bean);
+    }
+
+    /**
+     * 在运行时获取beanDefinition
+     */
+    public static void getBeanDefinitionOnRuntime(){
+        //获取DefaultListableBeanFactory
+        AnnotationConfigApplicationContext annotationContext = (AnnotationConfigApplicationContext) IoCTest.createAnnotationContext();
+        BeanDefinition zidingyi = annotationContext.getBeanDefinition("zidingyi");
     }
 
     public static void main(String[] args) {

@@ -5,10 +5,14 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="simpleBean" name="bean1,bean2,bean3" class="com.xxt.spring.ioc.bean.SimpleBean">
+    <bean id="simpleBean" class="com.xxt.spring.ioc.bean.SimpleBean">
         <property name="name" value="xxt"/>
         <property name="age" value="19"/>
     </bean>
 
+    <bean id="beanWithStaticDepends" class="com.xxt.spring.ioc.bean.BeanWithStaticDependsFactory" factory-method="newInstance">
+        <constructor-arg index="0" ref="simpleBean"/>
+        <constructor-arg index="1" value="myHome"/>
+    </bean>
 
 </beans>

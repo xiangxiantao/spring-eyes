@@ -1,12 +1,10 @@
 package com.xxt.spring.ioc.configuration;
 
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Configuration;
 
-@Configurable
+@Configuration
 //@Import()
-@ImportResource(value = "classpat*:applicationContext.xml")
+//@ImportResource(value = "classpat*:applicationContext.xml")
 public class SimpleConfiguration {
 
 

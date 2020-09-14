@@ -5,10 +5,13 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="simpleBean" name="bean1,bean2,bean3" class="com.xxt.spring.ioc.bean.SimpleBean">
-        <property name="name" value="xxt"/>
-        <property name="age" value="19"/>
+
+    <bean id="beanA" class="com.xxt.spring.ioc.bean.CircleBeanA">
+        <constructor-arg ref="beanB"/>
     </bean>
 
+    <bean id="beanB" class="com.xxt.spring.ioc.bean.CircleBeanB">
+        <constructor-arg ref="beanA"/>
+    </bean>
 
 </beans>
