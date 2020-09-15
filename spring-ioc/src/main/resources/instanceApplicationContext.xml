@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--通过构造器实例化bean的方式-->
+    <import resource="applicationContext.xml"/>
+
+    <!--通过静态工厂方法实例化bean-->
+    <bean id="simpleBean2" class="com.xxt.spring.bean.factory.SimpleBeanStaticFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="静态"/>
+        <constructor-arg index="1" value="19"/>
+    </bean>
+
+    <!--通过非静态工厂方法实例化bean，首先要实例化工厂类-->
+    <bean id="beanFactory" class="com.xxt.spring.bean.factory.SimpleBeanFactory"/>
+
+    <bean id="simpleBean3" factory-bean="beanFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="非静态"/>
+        <constructor-arg index="1" value="10"/>
+    </bean>
+
+</beans>

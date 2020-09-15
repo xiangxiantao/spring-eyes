@@ -1,7 +1,7 @@
-package com.xxt.spring.ioc.configuration;
+package com.xxt.spring.depends.configuration;
 
-import com.xxt.spring.ioc.bean.CircleBeanA;
-import com.xxt.spring.ioc.bean.CircleBeanB;
+import com.xxt.spring.depends.beans.CircleBeanA;
+import com.xxt.spring.depends.beans.CircleBeanB;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

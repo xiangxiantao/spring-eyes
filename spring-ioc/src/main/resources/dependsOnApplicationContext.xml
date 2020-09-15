@@ -5,13 +5,12 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <bean id="firstBean" class="com.xxt.spring.depends.beans.FirstBean"/>
 
-    <bean id="beanA" class="com.xxt.spring.depends.beans.CircleBeanA">
-        <constructor-arg ref="beanB"/>
-    </bean>
+    <!--depends-on机制-->
+    <bean id="lastBean" class="com.xxt.spring.depends.beans.LastBean" depends-on="firstBean"/>
 
-    <bean id="beanB" class="com.xxt.spring.depends.beans.CircleBeanB">
-        <constructor-arg ref="beanA"/>
-    </bean>
+
+
 
 </beans>

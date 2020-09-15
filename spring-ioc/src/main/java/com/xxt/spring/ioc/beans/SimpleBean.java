@@ -1,10 +1,17 @@
-package com.xxt.spring.ioc.bean;
+package com.xxt.spring.ioc.beans;
 
 public class SimpleBean {
 
     private String name;
 
     private Integer age;
+
+    public SimpleBean(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public SimpleBean() { }
 
     public String getName() {
         return name;

@@ -1,7 +1,8 @@
-package com.xxt.spring.ioc;
+package com.xxt.spring.bean;
 
-import com.xxt.spring.ioc.bean.AnoBean;
-import com.xxt.spring.ioc.bean.SimpleBean;
+import com.xxt.spring.ioc.IoCTest;
+import com.xxt.spring.ioc.beans.AnoBean;
+import com.xxt.spring.ioc.beans.SimpleBean;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -9,15 +10,19 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.beans.PropertyEditor;
-
-public class BeanTest {
+/**
+ * @decription:  BeanDefinition相关的测试类
+ * @author: haytt.xiang
+ * @date: 2020/9/15
+ * @version:  1.0
+*/
+public class BeanDefinitionTest {
 
     /**
      * 通过bean name获取bean
      */
     public static void getBeanByName(){
-        ApplicationContext xmlApplicationContext = IoCTest.createXmlApplicationContext();
+        ApplicationContext xmlApplicationContext = IoCTest.createXmlApplicationContext("applicationContext.xml");
         SimpleBean simpleBean = (SimpleBean) xmlApplicationContext.getBean("bean1");
         System.out.println(simpleBean);
     }

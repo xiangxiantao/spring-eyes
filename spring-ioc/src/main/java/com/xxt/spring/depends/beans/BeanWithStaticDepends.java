@@ -1,7 +1,9 @@
-package com.xxt.spring.ioc.bean;
+package com.xxt.spring.depends.beans;
+
+import com.xxt.spring.ioc.beans.SimpleBean;
 
 /**
- * @description:
+ * @description: 包含静态依赖的bean
  * @author: haytt.xiang
  * @date: 2020-09-14 20:20
  **/

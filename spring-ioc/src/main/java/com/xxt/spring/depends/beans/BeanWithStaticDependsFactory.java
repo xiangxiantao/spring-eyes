@@ -1,4 +1,6 @@
-package com.xxt.spring.ioc.bean;
+package com.xxt.spring.depends.beans;
+
+import com.xxt.spring.ioc.beans.SimpleBean;
 
 /**
  * @description:
@@ -7,7 +9,7 @@ package com.xxt.spring.ioc.bean;
  **/
 public class BeanWithStaticDependsFactory {
 
-    public static BeanWithStaticDepends newInstance(SimpleBean simpleBean, String home){
+    public BeanWithStaticDepends newInstance(SimpleBean simpleBean, String home){
         BeanWithStaticDepends beanWithStaticDepends = new BeanWithStaticDepends();
         beanWithStaticDepends.setSimpleBean(simpleBean);
         beanWithStaticDepends.setHome(home);

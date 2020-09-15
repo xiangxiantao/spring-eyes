@@ -1,12 +1,15 @@
-package com.xxt.spring.ioc;
+package com.xxt.spring.depends;
 
-import com.xxt.spring.ioc.bean.CircleBeanA;
-import com.xxt.spring.ioc.bean.NoCircleBeanA;
-import com.xxt.spring.ioc.configuration.Circleconfiguration;
-import com.xxt.spring.ioc.configuration.SimpleConfiguration;
+import com.xxt.spring.depends.beans.CircleBeanA;
+import com.xxt.spring.depends.beans.NoCircleBeanA;
+import com.xxt.spring.depends.configuration.Circleconfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.Charset;
 
 /**
  * @description: 循环依赖测试
@@ -42,10 +45,11 @@ public class CircleDependsTest {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         //constructorCircleDepends();
         //setterCircleDepends();
-        constructorAnnotationCircle();
+        //constructorAnnotationCircle();
+        System.out.println(URLDecoder.decode("%E5%AD%99%E6%80%9D%E8%A1%A1", "utf-8"));
     }
 
 }

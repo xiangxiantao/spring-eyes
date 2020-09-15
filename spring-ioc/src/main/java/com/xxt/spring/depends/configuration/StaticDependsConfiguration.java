@@ -1,7 +1,7 @@
-package com.xxt.spring.ioc.configuration;
+package com.xxt.spring.depends.configuration;
 
-import com.xxt.spring.ioc.bean.BeanWithStaticDepends;
-import com.xxt.spring.ioc.bean.SimpleBean;
+import com.xxt.spring.depends.beans.BeanWithStaticDepends;
+import com.xxt.spring.ioc.beans.SimpleBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

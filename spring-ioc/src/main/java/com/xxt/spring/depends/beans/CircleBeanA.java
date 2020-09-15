@@ -1,4 +1,4 @@
-package com.xxt.spring.ioc.bean;
+package com.xxt.spring.depends.beans;
 
 /**
  * @description: com.xxt.spring.ioc.bean

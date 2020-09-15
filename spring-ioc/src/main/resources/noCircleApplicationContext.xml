@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="noCircleBeanA" class="com.xxt.spring.ioc.bean.NoCircleBeanA">
+    <bean id="noCircleBeanA" class="com.xxt.spring.depends.beans.NoCircleBeanA">
         <property name="noCircleBeanB" ref="noCircleBeanB"/>
     </bean>
 
-    <bean id="noCircleBeanB" class="com.xxt.spring.ioc.bean.NoCircleBeanB">
+    <bean id="noCircleBeanB" class="com.xxt.spring.depends.beans.NoCircleBeanB">
         <property name="noCircleBeanA" ref="noCircleBeanA"/>
     </bean>
 
