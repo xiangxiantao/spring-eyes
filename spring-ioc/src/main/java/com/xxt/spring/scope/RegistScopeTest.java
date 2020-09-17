@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 public class RegistScopeTest {
 
     /**
-     * 硬编码注册scope（无效 待处理）
+     * 硬编码注册scope
      * @param
      */
     public static void first() {
