@@ -1,9 +1,11 @@
 package com.xxt.spring.event;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(1)
 public class MyAnoEventListener implements ApplicationListener<MySimpleEvent> {
 
     @Override
