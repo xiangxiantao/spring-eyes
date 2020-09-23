@@ -5,7 +5,7 @@ import com.xxt.spring.ioc.beans.SimpleBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @description: com.xxt.spring.extend
+ * @description: BeanPostProcessor 实例或它们直接引用的bean都没有资格进行自动代理
  * @author: haytt.xiang
  * @date: 2020-09-18 22:13
  **/
