@@ -1,10 +1,12 @@
 package com.xxt.spring.data.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -25,13 +27,21 @@ public class DataSourceConfig {
     private String jdbcPassword;
 
     @Bean
-    DataSource dataSource(){
+    public DataSource dataSource(){
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(jdbcDriverClassName);
         dataSource.setUrl(jdbcUrl);
         dataSource.setUsername(jdbcUsername);
         dataSource.setPassword(jdbcPassword);
         return dataSource;
+    }
+
+    @Bean
+    @Autowired
+    public DataSourceTransactionManager transactionManager(DataSource dataSource){
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(dataSource);
+        return transactionManager;
     }
 
 }
