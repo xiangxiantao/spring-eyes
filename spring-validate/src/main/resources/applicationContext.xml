@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--用String给Employee类型赋值-->
+    <bean class="com.xxt.spring.beanWarpper.beans.Company">
+        <property name="managingDirector" value="name:xxt;salary:500"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+<!--        <property name="customEditors">
+            <map>
+                <entry key="com.xxt.spring.beanWarpper.beans.Employee"
+                       value="com.xxt.spring.beanWarpper.propertyEditor.EmployeeEditor"/>
+            </map>
+        </property>-->
+        <property name="propertyEditorRegistrars" >
+            <list>
+                <ref bean="customPropertyEditorRegistrar"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="customPropertyEditorRegistrar" class="com.xxt.spring.beanWarpper.propertyEditor.CustomPropertyEditorRegistrar"/>
+
+
+</beans>
