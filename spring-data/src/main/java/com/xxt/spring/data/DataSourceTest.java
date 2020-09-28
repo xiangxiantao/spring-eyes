@@ -12,6 +12,10 @@ import java.sql.SQLException;
 
 public class DataSourceTest {
 
+    public static void main(String[] args) throws SQLException {
+        getDataSource();
+    }
+
     public static void getDataSource() throws SQLException {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(DataSourceConfig.class);
         DataSource dataSource = configApplicationContext.getBean(DataSource.class);

@@ -4,14 +4,17 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:applicationContext.properties")
+@ComponentScan({"com.xxt.spring.data"})
 public class DataSourceConfig {
 
     @Value("${jdbc.driverClassName}")
@@ -20,7 +23,7 @@ public class DataSourceConfig {
     @Value("${jdbc.url}")
     private String jdbcUrl;
 
-    @Value("${jdbc.username}")
+    @Value("${jdbc.uname}")
     private String jdbcUsername;
 
     @Value("${jdbc.password}")
@@ -37,11 +40,17 @@ public class DataSourceConfig {
     }
 
     @Bean
-    @Autowired
     public DataSourceTransactionManager transactionManager(DataSource dataSource){
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
         transactionManager.setDataSource(dataSource);
         return transactionManager;
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.setDataSource(dataSource());
+        return jdbcTemplate;
     }
 
 }
