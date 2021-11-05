@@ -12,6 +12,7 @@
         <module>spring-resource</module>
         <module>spring-validate</module>
         <module>spring-data</module>
+        <module>spring-task</module>
     </modules>
     <packaging>pom</packaging>
 
